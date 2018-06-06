@@ -1,0 +1,82 @@
+{
+  "_note1": "KEEP THIS FILE! Check it into a version control system (VCS) like git.",
+  "_note2": "ObjectBox manages crucial IDs for your object model. See docs for details.",
+  "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
+  "entities": [
+    {
+      "id": "1:8521418219858733818",
+      "lastPropertyId": "14:6791267244531050090",
+      "name": "Game",
+      "properties": [
+        {
+          "id": "1:6234476739240070979",
+          "name": "id"
+        },
+        {
+          "id": "2:7151556070311871644",
+          "name": "title"
+        },
+        {
+          "id": "3:5567665985715608675",
+          "name": "platform"
+        },
+        {
+          "id": "4:1265742658134490760",
+          "name": "started"
+        },
+        {
+          "id": "5:5480401319539792971",
+          "name": "storycompleted"
+        },
+        {
+          "id": "6:5237695120224557115",
+          "name": "allachievements"
+        },
+        {
+          "id": "7:7322611350608301350",
+          "name": "m100percent"
+        },
+        {
+          "id": "8:467671983652143079",
+          "name": "owned"
+        },
+        {
+          "id": "9:3087592271645375034",
+          "name": "want"
+        },
+        {
+          "id": "10:5512840233267736918",
+          "name": "addedDate"
+        },
+        {
+          "id": "11:6822146320155573661",
+          "name": "startedDate"
+        },
+        {
+          "id": "12:912391474161417626",
+          "name": "completedDate"
+        },
+        {
+          "id": "13:314298371701980350",
+          "name": "achievementsDate"
+        },
+        {
+          "id": "14:6791267244531050090",
+          "name": "m100percentDate"
+        }
+      ],
+      "relations": []
+    }
+  ],
+  "lastEntityId": "1:8521418219858733818",
+  "lastIndexId": "0:0",
+  "lastRelationId": "0:0",
+  "lastSequenceId": "0:0",
+  "modelVersion": 4,
+  "modelVersionParserMinimum": 4,
+  "retiredEntityUids": [],
+  "retiredIndexUids": [],
+  "retiredPropertyUids": [],
+  "retiredRelationUids": [],
+  "version": 1
+}
