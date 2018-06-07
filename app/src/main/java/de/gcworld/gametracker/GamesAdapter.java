@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -17,10 +18,20 @@ public class GamesAdapter extends BaseAdapter {
 
         public TextView title;
         public TextView platform;
+        public ImageView startedimage, storyimage, achievementimage, m100image;
+        public TextView started, story, achievement, m100;
 
         public GameViewHolder(View itemView) {
             title = (TextView) itemView.findViewById(R.id.textViewTitle);
             platform = (TextView) itemView.findViewById(R.id.textViewPlatform);
+            started = itemView.findViewById(R.id.started);
+            story = itemView.findViewById(R.id.storycompleted);
+            achievement = itemView.findViewById(R.id.achievements);
+            m100 = itemView.findViewById(R.id.m100);
+            startedimage = itemView.findViewById(R.id.startedimage);
+            storyimage = itemView.findViewById(R.id.storyimage);
+            achievementimage = itemView.findViewById(R.id.achievementsimage);
+            m100image = itemView.findViewById(R.id.m100image);
         }
     }
 
@@ -48,6 +59,22 @@ public class GamesAdapter extends BaseAdapter {
         Game game = getItem(position);
         holder.title.setText(game.getTitle());
         holder.platform.setText(game.getPlatform());
+        if(!game.started){
+            holder.started.setVisibility(View.INVISIBLE);
+            holder.startedimage.setVisibility(View.INVISIBLE);
+        }
+        if(!game.storycompleted){
+            holder.story.setVisibility(View.INVISIBLE);
+            holder.storyimage.setVisibility(View.INVISIBLE);
+        }
+        if(!game.allachievements){
+            holder.achievement.setVisibility(View.INVISIBLE);
+            holder.achievementimage.setVisibility(View.INVISIBLE);
+        }
+        if(!game.m100percent){
+            holder.m100.setVisibility(View.INVISIBLE);
+            holder.m100image.setVisibility(View.INVISIBLE);
+        }
 
         return convertView;
     }

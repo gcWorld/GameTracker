@@ -2,6 +2,7 @@ package de.gcworld.gametracker;
 
 import android.app.Application;
 import android.provider.ContactsContract;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -46,7 +47,7 @@ public class CreateNewActivity extends AppCompatActivity {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 boolean enable = s.length() != 0;
                 addGame.setEnabled(enable);
-
+                addGame.setBackgroundColor(ContextCompat.getColor(CreateNewActivity.this,R.color.secondaryColor));
             }
 
             @Override

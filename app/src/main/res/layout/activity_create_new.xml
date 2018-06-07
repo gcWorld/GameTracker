@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:ems="10"
-        android:hint="Name"
+        android:hint="Title"
         android:inputType="textCapWords|textAutoComplete"
         android:textColorHint="@color/primaryLightColor"
         app:layout_constraintEnd_toEndOf="parent"
@@ -99,11 +99,11 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:backgroundTint="@color/secondaryColor"
         android:text="Save"
         android:enabled="false"
         android:onClick="onSave"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
 </android.support.constraint.ConstraintLayout>
