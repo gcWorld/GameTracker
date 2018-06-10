@@ -21,7 +21,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".CreateNewActivity" />
-        <activity android:name=".EditActivity"></activity>
+        <activity android:name=".EditActivity" />
+        <activity
+            android:name=".BottomNav"
+            android:label="@string/title_activity_bottom_nav"></activity>
     </application>
 
 </manifest>

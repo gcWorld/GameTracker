@@ -8,8 +8,11 @@ import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
@@ -54,6 +57,24 @@ public class EditActivity extends AppCompatActivity {
         title = findViewById(R.id.editText);
         platform = findViewById(R.id.spinner);
 
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.Platforms, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        platform.setAdapter(adapter);
+        int spinnerPosition = adapter.getPosition(game.getPlatform());
+        platform.setSelection(spinnerPosition);
+
+        platform.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                setActive();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
         startedbox = findViewById(R.id.checkBox);
         storycompletedbox = findViewById(R.id.checkBox2);
         allachievementsbox = findViewById(R.id.checkBox3);
@@ -70,13 +91,27 @@ public class EditActivity extends AppCompatActivity {
         wantbox.setChecked(game.want);
         ownedbox.setChecked(game.owned);
         //
+
+        CompoundButton.OnCheckedChangeListener ch = new CompoundButton.OnCheckedChangeListener(){
+
+            @Override
+            public void onCheckedChanged(CompoundButton cb, boolean DeleteButton) {
+                setActive();
+            }
+        };
+
+        ownedbox.setOnCheckedChangeListener(ch);
+        wantbox.setOnCheckedChangeListener(ch);
+        startedbox.setOnCheckedChangeListener(ch);
+        storycompletedbox.setOnCheckedChangeListener(ch);
+        allachievementsbox.setOnCheckedChangeListener(ch);
+        m100percentbox.setOnCheckedChangeListener(ch);
+
         title.addTextChangedListener(new TextWatcher() {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                boolean enable = s.length() != 0;
-                addGame.setEnabled(enable);
-                addGame.setBackgroundColor(ContextCompat.getColor(EditActivity.this,R.color.secondaryColor));
+                setActive();
             }
 
             @Override
@@ -95,6 +130,12 @@ public class EditActivity extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_delete, menu);
         return true;
+    }
+
+    private void setActive() {
+        //boolean enable = s.length() != 0;
+        addGame.setEnabled(true);
+        addGame.setBackgroundColor(ContextCompat.getColor(EditActivity.this,R.color.secondaryColor));
     }
 
     @Override
@@ -138,7 +179,7 @@ public class EditActivity extends AppCompatActivity {
         //Game gamelocal = (title.getText().toString(), platform.getSelectedItem().toString(),started, storycompleted, allachievements, m100percent, owned, want);
         //game.setAddedDate(new Date());
         game.setTitle(title.getText().toString());
-        game.setPlatform(game.platform);//platform.getSelectedItem().toString());
+        game.setPlatform(platform.getSelectedItem().toString());
         if(started && !game.started) {
             game.setStartedDate(new Date());
             game.started = true;
@@ -178,4 +219,6 @@ public class EditActivity extends AppCompatActivity {
         gamesBox.put(game);
         finish();
     }
+
+
 }

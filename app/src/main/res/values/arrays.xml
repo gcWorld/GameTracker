@@ -2,5 +2,7 @@
 <resources>
     <string-array name="Platforms"><item>Platform</item>
         <item>Xbox One</item>
+        <item>PC</item>
+        <item>PS3</item>
     </string-array>
 </resources>

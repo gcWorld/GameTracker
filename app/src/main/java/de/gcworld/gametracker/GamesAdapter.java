@@ -59,21 +59,33 @@ public class GamesAdapter extends BaseAdapter {
         Game game = getItem(position);
         holder.title.setText(game.getTitle());
         holder.platform.setText(game.getPlatform());
-        if(!game.started){
+        if(!game.started) {
             holder.started.setVisibility(View.INVISIBLE);
             holder.startedimage.setVisibility(View.INVISIBLE);
+        }else {
+            holder.started.setVisibility(View.VISIBLE);
+            holder.startedimage.setVisibility(View.VISIBLE);
         }
         if(!game.storycompleted){
             holder.story.setVisibility(View.INVISIBLE);
             holder.storyimage.setVisibility(View.INVISIBLE);
+        }else {
+            holder.story.setVisibility(View.VISIBLE);
+            holder.storyimage.setVisibility(View.VISIBLE);
         }
         if(!game.allachievements){
             holder.achievement.setVisibility(View.INVISIBLE);
             holder.achievementimage.setVisibility(View.INVISIBLE);
+        }else {
+            holder.achievement.setVisibility(View.VISIBLE);
+            holder.achievementimage.setVisibility(View.VISIBLE);
         }
         if(!game.m100percent){
             holder.m100.setVisibility(View.INVISIBLE);
             holder.m100image.setVisibility(View.INVISIBLE);
+        }else {
+            holder.m100.setVisibility(View.VISIBLE);
+            holder.m100image.setVisibility(View.VISIBLE);
         }
 
         return convertView;
